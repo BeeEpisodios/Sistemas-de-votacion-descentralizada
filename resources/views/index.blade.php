@@ -9,6 +9,11 @@
 </head>
 
 <body>
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <div class="container text-center border border-dark mt-4 shadow-lg p-4 my-4"
         style="padding: 5vh; border-radius: 15px; width: 100%; max-width: 1100px;">
         <form action="{{ route('guardarVoto') }}" method="POST">

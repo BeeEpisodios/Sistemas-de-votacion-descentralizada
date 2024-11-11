@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estudiante;
 use Illuminate\Http\Request;
-use App\Services\MultiChainClient;
+use App\Services\MultiChainService;
+
 
 class VotoController extends Controller
 {
   private $mc;
 
-  public function __construct()
+  public function __construct(MultiChainService $multiChainService)
   {
-    $host = '127.0.0.1';
-    $port = 4248;
-    $username = 'multichainrpc';
-    $password = 'CkaLdesG7xx4jCUqX6eDanguZewkVSBz78RbazFe9Kx6';
-    $usessl = false;
-    $this->mc = new MultiChainClient($host, $port, $username, $password, $usessl);
+    $this->mc = $multiChainService;
   }
 
   public function index()
@@ -26,6 +23,11 @@ class VotoController extends Controller
 
   public function guardarVoto(Request $request)
   {
+    /*
+    $estudiante = new Estudiante();
+    $estudiante->codigo = '182932';
+    $estudiante->save();*/
+
     $stream = 'informatica';
     $key = 'elecciones25II';
 
@@ -36,39 +38,21 @@ class VotoController extends Controller
       'token' => 'required|string',
     ]);
 
-    // Publicación usando los datos validados
-    $txid = $this->mc->publish($stream, $key, [
-      'json' => [
-        'lista' => $votoData['opcion'],
-      ]
+    // Verificar que el código del estudiante existe y el token es correcto
+    $estudiante = Estudiante::where('codigo', $votoData['codigo'])->first();
+
+    if (!$estudiante || $estudiante->token !== $votoData['token']) {
+      // Si no se encuentra el estudiante o el token no coincide, redirigir con un mensaje de error
+      return redirect()->route('principal')->with('error', 'Código o token incorrectos.');
+    }
+
+    // Si el código y token son correctos, proceder con la publicación en MultiChain
+    $address = $estudiante->publickey; // Aquí se toma la llave pública del estudiante
+    $txid = $this->mc->publicarVoto($address, $stream, $key, [
+      'json' => ['lista' => $votoData['opcion']]
     ]);
-    $txid1 = $this->mc->publishfrom('1R4UFK9YF196QHdPKXVKnqAZDX1QWVeMM3pqYf', $stream, $key, [
-      'json' =>
-      [
-        'lista' => $votoData['opcion'],
-      ]
-    ]);
-    return view('success');
-  }
 
-  public function show(string $id)
-  {
-    //
-  }
-
-  /**
-   * Update the specified resource in storage.
-   */
-  public function update(Request $request, string $id)
-  {
-    //
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   */
-  public function destroy(string $id)
-  {
-    //
+    // Redirigir con el txid de la transacción
+    return redirect()->route('voto.exito', ['txid' => $txid]);
   }
 }
