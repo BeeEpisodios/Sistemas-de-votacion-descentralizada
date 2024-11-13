@@ -24,7 +24,7 @@ class EnviarTokenYPublicKey extends Command
     // Iterar sobre los estudiantes
     foreach ($estudiantes as $estudiante) {
       // Generar un token único para cada estudiante
-      $token = Str::random(32);
+      $token = Str::random(8);
       $estudiante->token = $token;
       $estudiante->save();
 

@@ -38,7 +38,7 @@ class VotoCorreo extends Mailable
    */
   public function build()
   {
-    return $this->subject('Tu Token y Clave Pública')
+    return $this->subject('CENTRO FEDERADO DE INFORMÁTICA')
       ->view('emails.voto_correo'); // Vista que crearás a continuación
   }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
       $table->string('codigo', 6)->unique();
       $table->string('publickey')->nullable();
       $table->string('token')->nullable();
+      $table->boolean('estado')->default(false);
       $table->primary(['codigo']);
       $table->timestamps();
     });

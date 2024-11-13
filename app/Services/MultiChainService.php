@@ -11,9 +11,9 @@ class MultiChainService
   public function __construct()
   {
     $host = '127.0.0.1';
-    $port = 4248;
+    $port = 4266;
     $username = 'multichainrpc';
-    $password = 'CkaLdesG7xx4jCUqX6eDanguZewkVSBz78RbazFe9Kx6';
+    $password = 'Fb2rpfVTuNF7JSMpDamQF3SHXb1mDcuRqnNq5TGy9qRs';
     $usessl = false;
     $this->mc = new MultiChainClient($host, $port, $username, $password, $usessl);
   }

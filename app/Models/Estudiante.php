@@ -11,5 +11,5 @@ class Estudiante extends Model
 
   protected $primaryKey = 'codigo';
 
-  protected $fillable = ['codigo', 'token', 'publickey'];
+  protected $fillable = ['token', 'publickey', 'estado'];
 }

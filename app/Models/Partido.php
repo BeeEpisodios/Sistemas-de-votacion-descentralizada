@@ -9,13 +9,5 @@ class Partido extends Model
 {
   use HasFactory;
 
-  protected $fillable = [
-    'codigo',
-    'publickey',
-  ];
-
-  public function elecciones()
-  {
-    return $this->belongsToMany(Eleccion::class, 'eleccion_partido', 'partido_id', 'eleccion_id');
-  }
+  protected $fillable = ['nombre'];
 }
