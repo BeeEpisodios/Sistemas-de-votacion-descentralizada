@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+  // **************************tabla de listas**************************
   /**
    * Run the migrations.
    */

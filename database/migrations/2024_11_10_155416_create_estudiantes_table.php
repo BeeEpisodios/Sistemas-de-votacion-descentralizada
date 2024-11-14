@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+  // **************************tabla estudiantes**************************
   /**
    * Run the migrations.
    */
@@ -16,6 +17,7 @@ return new class extends Migration
       $table->string('publickey')->nullable();
       $table->string('token')->nullable();
       $table->boolean('estado')->default(false);
+      $table->boolean('enviado')->default(false);
       $table->primary(['codigo']);
       $table->timestamps();
     });
