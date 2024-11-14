@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Partido extends Model
 {
+  /***********************Partidos Model ***********************/
   use HasFactory;
 
   protected $fillable = ['nombre'];

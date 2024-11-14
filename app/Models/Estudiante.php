@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estudiante extends Model
 {
+  /***********************Estudiantes Model ***********************/
   use HasFactory;
 
   protected $primaryKey = 'codigo';
 
-  protected $fillable = ['token', 'publickey', 'estado'];
+  protected $fillable = ['codigo', 'token', 'publickey', 'estado'];
+
+  protected $casts = [
+    'codigo' => 'string',
+  ];
 }
