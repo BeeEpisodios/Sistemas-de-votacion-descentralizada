@@ -22,7 +22,7 @@
             <hr>
             <p class="mb-0">Para más detalles, puede revisar su historial de votación en su cuenta.</p>
             <p class="mt-3">ID de Transacción:
-                <a href="http://localhost:4444/infochain/transaction/{{ $txid }}" target="_blank"
+                <a href="https://infochain.medicitas.online/infochain/transaction/{{ $txid }}" target="_blank"
                     class="font-weight-bold">
                     {{ $txid }}
                 </a>

@@ -6,6 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informática</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const voteBlank = document.getElementById("btnradio4");
+            const otherOptions = document.querySelectorAll('input[name="opcion"]:not(#btnradio4)');
+
+            voteBlank.addEventListener("change", () => {
+                if (voteBlank.checked) {
+                    otherOptions.forEach(option => option.checked = false);
+                }
+            });
+
+            otherOptions.forEach(option => {
+                option.addEventListener("change", () => {
+                    if (option.checked) {
+                        voteBlank.checked = false;
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -32,29 +52,39 @@
                 <h3>LISTAS</h3>
                 <div class="row mb-3 text-center">
                     <div class="col-md-4 themed-grid-col">
-                        <input type="radio" class="btn-check" name="opcion" id="btnradio1" value=1
+                        <input type="radio" class="btn-check" name="opcion" id="btnradio1" value="1"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary mt-2" for="btnradio1"><img src="images/file.jpg"
-                                alt="Opción 1" style="max-width: 100%; height: auto;">
+                        <label class="btn btn-outline-primary mt-2" for="btnradio1">
+                            <img src="images/file.jpg" alt="Opción 1" style="max-width: 100%; height: auto;">
                             <h5>Nexus</h5>
                         </label>
                     </div>
 
                     <div class="col-md-4 themed-grid-col">
-                        <input type="radio" class="btn-check" name="opcion" id="btnradio2" value=2
+                        <input type="radio" class="btn-check" name="opcion" id="btnradio2" value="2"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary mt-2" for="btnradio2"><img src="images/file.jpg"
-                                alt="Opción 2" style="max-width: 100%; height: auto;">
+                        <label class="btn btn-outline-primary mt-2" for="btnradio2">
+                            <img src="images/file.jpg" alt="Opción 2" style="max-width: 100%; height: auto;">
                             <h5>Info Unity</h5>
                         </label>
                     </div>
 
                     <div class="col-md-4 themed-grid-col">
-                        <input type="radio" class="btn-check" name="opcion" id="btnradio3" value=3
+                        <input type="radio" class="btn-check" name="opcion" id="btnradio3" value="3"
                             autocomplete="off">
-                        <label class="btn btn-outline-primary mt-2" for="btnradio3"><img src="images/file.jpg"
-                                alt="Opción 3" style="max-width: 100%; height: auto;">
+                        <label class="btn btn-outline-primary mt-2" for="btnradio3">
+                            <img src="images/file.jpg" alt="Opción 3" style="max-width: 100%; height: auto;">
                             <h5>Unidad Central</h5>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <div class="col-md-12 themed-grid-col">
+                        <input type="radio" class="btn-check" name="opcion" id="btnradio4" value="4"
+                            autocomplete="off">
+                        <label class="btn btn-outline-danger mt-2" for="btnradio4">
+                            <h5>Voto en Blanco</h5>
                         </label>
                     </div>
                 </div>
