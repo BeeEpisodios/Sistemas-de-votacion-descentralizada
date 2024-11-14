@@ -18,12 +18,12 @@ class MultiChainService
     $this->mc = new MultiChainClient($host, $port, $username, $password, $usessl);
   }
 
-
+  // Esta función genera una llave publica
   public function generarLlavePublica()
   {
     $address = $this->mc->getnewaddress();
-    $txid = $this->mc->grant($address, 'send,receive'); // global permission
-    $txid = $this->mc->grant($address, 'informatica.write'); // per-entity permission
+    $txid = $this->mc->grant($address, 'send,receive');      //Permisos globales a la llave publica
+    $txid = $this->mc->grant($address, 'informatica.write'); //Permisos para escribir en es stream
     return $address;
   }
 
@@ -33,7 +33,4 @@ class MultiChainService
     $txid = $this->mc->publishfrom($address, $stream, $key, $data);
     return $txid;
   }
-
-  // Otros métodos para diferentes funcionalidades de MultiChain
-  // ...
 }

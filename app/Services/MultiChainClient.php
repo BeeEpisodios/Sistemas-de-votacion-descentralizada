@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+/*DISCLAIMER : Esta Api esta desarrollada por Coin Sciences Ltd*/
 /*
     MultiChain JSON-RPC API Library for PHP
     
