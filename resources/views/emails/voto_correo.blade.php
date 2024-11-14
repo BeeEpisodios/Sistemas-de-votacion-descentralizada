@@ -24,10 +24,11 @@
     <p>Tu token para votar es: <strong>{{ $token }}</strong></p>
     <p>Tu clave pública es: <strong>{{ $publicKey }}</strong></p>
 
-    <h3>Realiza tu voto <a href="https://link_aqui"><strong>aquí</strong></a>.</h3>
-    <p>Puedes confirmar tu voto en la <a href="https://link_aqui"><strong>cadena de bloques</strong></a> ingresando tu
+    <h3>Realiza tu voto <a href="https://informatica.medicitas.online/"><strong>aquí</strong></a>.</h3>
+    <p>Puedes confirmar tu voto en la <a href="https://infochain.medicitas.online/infochain/transactions"><strong>cadena
+                de bloques</strong></a> ingresando tu
         clave pública en el
-        buscador.</p>
+        buscador y ver la ultima transacción.</p>
 
     <p>Gracias por participar en las elecciones.</p>
 </body>
