@@ -12,30 +12,22 @@ class VotoController extends Controller
 {
   private $mc;
 
+  // Obteniendo la conexion con la MultiChain JSON-RPC API
   public function __construct(MultiChainService $multiChainService)
   {
     $this->mc = $multiChainService;
   }
 
+  // Mostrar la pagina principal de votación
   public function index()
   {
-    /*$partido0 = new Partido();
-    $partido0->nombre = "Nexus";
-    $partido0->save();
-    $partido1 = new Partido();
-    $partido1->nombre = "Info Unity";
-    $partido1->save();
-    $partido2 = new Partido();
-    $partido2->nombre = "Unidad Central";
-    $partido2->save();
-    $estudiante = new Estudiante();
-    $estudiante->codigo = '182932';
-    $estudiante->save();*/
     return view("index");
   }
 
+  // Peticion POST para validar datos del alumno y guardar voto en la multichain
   public function guardarVoto(Request $request)
   {
+    //validación de datos
     $votoData = $request->validate([
       'opcion' => 'required|integer',
       'codigo' => 'required|string',
@@ -44,10 +36,9 @@ class VotoController extends Controller
 
     $stream = 'informatica';
     $key = 'elecciones24II';
-
+    /*================= Verificar datos del alumno =================*/
     $lista = Partido::where('id', $votoData['opcion'])->first();
     $estudiante = Estudiante::where('codigo', $votoData['codigo'])->first();
-
     if (!$estudiante || $estudiante->token !== $votoData['token'] || !$lista) {
       return redirect()->route('principal')->with('error', 'Datos incorrectos en los valores : Codigo, Token, Lista.');
     }
@@ -55,12 +46,14 @@ class VotoController extends Controller
       return redirect()->route('principal')->with('error', 'Token utilizado.');
     }
 
+    /*==== Escribir voto en la blockchain con la llave publica del estudiante ====*/
     $txid = $this->mc->publicarVoto($estudiante->publickey, $stream, $key, [
       'json' => ['lista' => $lista->nombre, 'ID' => $lista->id]
     ]);
     $estudiante->estado = true;
     $estudiante->save();
 
+    // --Retornar la pagina de Success con el id de transaccion
     return redirect()->route('voto.exito', ['txid' => $txid]);
   }
 }
