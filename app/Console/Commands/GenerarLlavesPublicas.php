@@ -8,17 +8,19 @@ use App\Models\Estudiante;
 
 class GenerarLlavesPublicas extends Command
 {
-  protected $signature = 'generar:llavespublicas';
+  protected $signature = 'app:generar-llaves';
   protected $description = 'Genera llaves públicas para los estudiantes y las guarda en la base de datos';
 
   private $multiChainService;
 
+  // Construir el sericio de la Multichain API
   public function __construct(MultiChainService $multiChainService)
   {
     parent::__construct();
     $this->multiChainService = $multiChainService;
   }
 
+  // Funcionalidad: Genera una llave publica a cada estudiante
   public function handle()
   {
     $estudiantes = Estudiante::whereNull('publickey')->get();
