@@ -2,8 +2,8 @@
 
 Este proyecto tiene como objetivo desarrollar un sistema de votación descentralizado que permita a los estudiantes de la Escuela Profesional de Informática y Sistemas de la UNSAAC realizar elecciones de manera segura, transparente y confiable. Utilizando tecnología blockchain, el sistema garantiza la integridad de los votos, previene manipulaciones y asegura el anonimato de los votantes.
 
-<p align="center"><a href="" target="_blank"><img src="public/images/listas.png" width="500" alt=""></a></p>
-<p align="center"><a href="" target="_blank"><img src="public/images/exito.png" width="700" alt=""></a></p>
+<p align="center"><a href="" target="_blank"><img src="./public/images/listas.png" width="500" alt=""></a></p>
+<p align="center"><a href="" target="_blank"><img src="./public/images/exito.png" width="700" alt=""></a></p>
 
 Este proyecto se alinea con la mejora de los procesos internos de la Escuela Profesional de Informática y Sistemas y, en un marco más amplio, contribuir al desarrollo tecnológico de la UNSAAC. Al implementar un sistema de votación descentralizado, se busca modernizar y optimizar los procesos democráticos estudiantiles, fomentando la adopción de soluciones innovadoras que refuercen la transparencia, la seguridad y la confianza institucional.
 
