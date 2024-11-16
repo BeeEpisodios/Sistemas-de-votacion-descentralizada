@@ -55,7 +55,8 @@
                         <input type="radio" class="btn-check" name="opcion" id="btnradio1" value="1"
                             autocomplete="off">
                         <label class="btn btn-outline-primary mt-2" for="btnradio1">
-                            <img src="images/file.jpg" alt="Opción 1" style="max-width: 100%; height: auto;">
+                            <img src="https://s3.coinmarketcap.com/static-gravity/image/9dac2cd700b746fda0444282ff49dd32.png"
+                                alt="Opción 1" style="max-width: 100%; height: auto;">
                             <h5>Nexus</h5>
                         </label>
                     </div>
@@ -64,7 +65,8 @@
                         <input type="radio" class="btn-check" name="opcion" id="btnradio2" value="2"
                             autocomplete="off">
                         <label class="btn btn-outline-primary mt-2" for="btnradio2">
-                            <img src="images/file.jpg" alt="Opción 2" style="max-width: 100%; height: auto;">
+                            <img src="https://s3.coinmarketcap.com/static-gravity/image/9dac2cd700b746fda0444282ff49dd32.png"
+                                alt="Opción 2" style="max-width: 100%; height: auto;">
                             <h5>Info Unity</h5>
                         </label>
                     </div>
@@ -73,7 +75,8 @@
                         <input type="radio" class="btn-check" name="opcion" id="btnradio3" value="3"
                             autocomplete="off">
                         <label class="btn btn-outline-primary mt-2" for="btnradio3">
-                            <img src="images/file.jpg" alt="Opción 3" style="max-width: 100%; height: auto;">
+                            <img src="https://s3.coinmarketcap.com/static-gravity/image/9dac2cd700b746fda0444282ff49dd32.png"
+                                alt="Opción 3" style="max-width: 100%; height: auto;">
                             <h5>Unidad Central</h5>
                         </label>
                     </div>
